@@ -1,0 +1,86 @@
+body {
+  font-family: "Inter", sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+.frame {
+  width: 100%;
+  height: 100%;
+  background: #e5e5e5;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.main_frame {
+  position: relative;
+  width: 1440px;
+  height: 1312px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  /* margin-top: 2px; */
+  /* background: #fadeb9; */
+}
+.main_frame .left_frame {
+  position: relative;
+  width: 305px;
+  height: 1315px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+}
+.main_frame .mid_frame {
+  position: relative;
+  width: 970px;
+  height: 1259px;
+  margin-left: 30px;
+  margin-right: 27px;
+  /* display: flex;
+  flex-direction: column; */
+}
+.main_frame .right_frame {
+  position: relative;
+  width: 108px;
+  height: 1315px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+}
+
+.el1 {
+  position: absolute;
+  top: 37px;
+  left: 36px;
+}
+.el2 {
+  position: absolute;
+  left: 84px;
+  top: 400px;
+}
+.el3 {
+  position: absolute;
+  left: 516px;
+  top: 60px;
+}
+.el4 {
+  position: absolute;
+  left: 330px;
+  top: 370px;
+}
+.el5 {
+  position: absolute;
+  left: 554px;
+  top: 378px;
+}
+.el6 {
+  position: absolute;
+  left: 892px;
+  top: 76px;
+}
+.el7 {
+  position: absolute;
+  left: 917px;
+  top: 424px;
+}

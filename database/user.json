@@ -1,8 +1,9 @@
 {
-  "name": "Ronny",
+  "name": "ronny",
   "profession": "Software Engineer",
   "age": 27,
   "residence": "South Korea",
+  "freelance": "available",
   "address": "Seoul, South Korea",
   "languages": ["English", "Uzbek", "Korean", "Turkish"],
   "skills": ["Html", "CSS", "JavaScript", "NodeJS", "ReactJS"],
