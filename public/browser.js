@@ -33,6 +33,25 @@ document.getElementById("create-form").addEventListener("submit", (event) => {
       createField.focus();
     })
     .catch((err) => {
-      console.log("item qo'shilmadi: " + err);
+      console.log("item was not added: " + err);
     });
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Are you sure you want to delete")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data_id") })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("item was not deleted:" + err);
+        });
+    }
+  }
+  if (e.target.classList.contains("edit-me")) {
+    console.log("edit");
+  }
 });
