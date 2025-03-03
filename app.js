@@ -1,5 +1,6 @@
 console.log("Starting");
 
+const { log } = require("console");
 const express = require("express");
 const app = express();
 const fs = require("fs");
@@ -28,6 +29,20 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4: Routing code
+app.get("/", function (req, res) {
+  console.log("user entered /");
+
+  db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+        res.end("Something went wrong");
+      } else {
+        res.render("reja", { items: data });
+      }
+    });
+});
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
   const new_reja = req.body.reja;
@@ -54,22 +69,25 @@ app.post("/delete-item", (req, res) => {
     }
   );
 });
+app.post("/edit-item", (req, res) => {
+  const data = req.body;
+  db.collection("plans").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(data.id) },
+    { $set: { reja: data.new_input } },
+    (err, data) => {
+      res.json({ state: "success" });
+    }
+  );
+});
+app.post("/delete-all", (req, res) => {
+  if (req.body.delete_all) {
+    db.collection("plans").deleteMany(() => {
+      res.json({ state: "all plans deleted" });
+    });
+  }
+});
 app.get("/author", function (req, res) {
   res.render("author", { user: user });
-});
-app.get("/", function (req, res) {
-  console.log("user entered /");
-
-  db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-      if (err) {
-        console.log(err);
-        res.end("Something went wrong");
-      } else {
-        res.render("reja", { items: data });
-      }
-    });
 });
 
 module.exports = app;

@@ -10,7 +10,7 @@ function itemTemplate(item) {
                 data_id="${item._id}"
                 class="edit-me btn btn-secondary btn-sm mr-1"
               >
-                Change
+                Edit
               </button>
               <button
                 data_id="${item._id}"
@@ -52,6 +52,37 @@ document.addEventListener("click", (e) => {
     }
   }
   if (e.target.classList.contains("edit-me")) {
-    console.log("edit");
+    let userInput = prompt(
+      "Are you sure you want to edit this item?",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data_id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.querySelector(
+            ".item-text"
+          ).innerHTML = userInput;
+        })
+        .catch((err) => {
+          console.log("edit qismda xatolik yuz berdi:", err);
+        });
+    }
   }
+});
+
+document.getElementById("clean-all").addEventListener("click", () => {
+  axios
+    .post("/delete-all", { delete_all: true })
+    .then((response) => {
+      alert(response.data.state);
+      document.location.reload();
+    })
+    .catch((err) => {
+      console.log("delete-all qismda xatolik yuz berdi:", err);
+    });
 });
