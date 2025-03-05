@@ -1,49 +1,59 @@
-//  ********************************   Task D     *****************************************
-class Shop {
-  now = new Date().toLocaleTimeString();
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
+//  ********************************   Task E     *****************************************
+function reverse(word) {
+  let reversed = "";
+  for (let i = word.length - 1; i >= 0; i--) {
+    reversed += word[i];
   }
-  qoldiq() {
-    console.log(
-      `Hozir ${this.now} da ${this.non}ta non, ${this.lagmon}ta lagmon, ${this.cola}ta cola mavjud!`
-    );
-  }
-  sotish(mahsulot, son) {
-    if (mahsulot === "non") {
-      this.non -= son;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon -= son;
-    } else if (mahsulot === "cola") {
-      this.cola -= son;
-    } else {
-      console.log(
-        "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
-      );
-    }
-  }
-  qabul(mahsulot, son) {
-    if (mahsulot === "non") {
-      this.non += son;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon += son;
-    } else if (mahsulot === "cola") {
-      this.cola += son;
-    } else {
-      console.log(
-        "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
-      );
-    }
-  }
+  return reversed;
 }
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qabul("fanta", 4);
-shop.qoldiq();
+console.log(reverse("hello world"));
+
+//  ********************************   Task D     *****************************************
+// class Shop {
+//   now = new Date().toLocaleTimeString();
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
+//   qoldiq() {
+//     console.log(
+//       `Hozir ${this.now} da ${this.non}ta non, ${this.lagmon}ta lagmon, ${this.cola}ta cola mavjud!`
+//     );
+//   }
+//   sotish(mahsulot, son) {
+//     if (mahsulot === "non") {
+//       this.non -= son;
+//     } else if (mahsulot === "lagmon") {
+//       this.lagmon -= son;
+//     } else if (mahsulot === "cola") {
+//       this.cola -= son;
+//     } else {
+//       console.log(
+//         "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
+//       );
+//     }
+//   }
+//   qabul(mahsulot, son) {
+//     if (mahsulot === "non") {
+//       this.non += son;
+//     } else if (mahsulot === "lagmon") {
+//       this.lagmon += son;
+//     } else if (mahsulot === "cola") {
+//       this.cola += son;
+//     } else {
+//       console.log(
+//         "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
+//       );
+//     }
+//   }
+// }
+// const shop = new Shop(4, 5, 2);
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
+// shop.qabul("fanta", 4);
+// shop.qoldiq();
 //  ********************************   Task C     *****************************************
 // function checkContent(word1, word2) {
 //   if (typeof word1 === "string" && typeof word2 === "string") {
