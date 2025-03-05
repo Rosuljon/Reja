@@ -1,17 +1,63 @@
-// ********************************   Task C     *****************************************
-function checkContent(word1, word2) {
-  if (typeof word1 === "string" && typeof word2 === "string") {
-    return (
-      word1.split("").sort().toString() === word2.split("").sort().toString()
+//  ********************************   Task D     *****************************************
+class Shop {
+  now = new Date().toLocaleTimeString();
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+  qoldiq() {
+    console.log(
+      `Hozir ${this.now} da ${this.non}ta non, ${this.lagmon}ta lagmon, ${this.cola}ta cola mavjud!`
     );
-  } else {
-    return "Please enter valid strings.";
+  }
+  sotish(mahsulot, son) {
+    if (mahsulot === "non") {
+      this.non -= son;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon -= son;
+    } else if (mahsulot === "cola") {
+      this.cola -= son;
+    } else {
+      console.log(
+        "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
+      );
+    }
+  }
+  qabul(mahsulot, son) {
+    if (mahsulot === "non") {
+      this.non += son;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon += son;
+    } else if (mahsulot === "cola") {
+      this.cola += son;
+    } else {
+      console.log(
+        "iltimos dokonda bor mahsulot tanlang! Masalan: cola, non, lagmon"
+      );
+    }
   }
 }
-console.log(checkContent("hello", "olleh"));
-console.log(checkContent("mit24group", "groupmit24"));
-console.log(checkContent("M", "m"));
-console.log(checkContent(1, "1"));
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qabul("fanta", 4);
+shop.qoldiq();
+//  ********************************   Task C     *****************************************
+// function checkContent(word1, word2) {
+//   if (typeof word1 === "string" && typeof word2 === "string") {
+//     return (
+//       word1.split("").sort().toString() === word2.split("").sort().toString()
+//     );
+//   } else {
+//     return "Please enter valid strings.";
+//   }
+// }
+// console.log(checkContent("hello", "olleh"));
+// console.log(checkContent("mit24group", "groupmit24"));
+// console.log(checkContent("M", "m"));
+// console.log(checkContent(1, "1"));
 
 // ********************************   Task B     *****************************************
 
