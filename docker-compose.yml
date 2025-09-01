@@ -1,0 +1,21 @@
+version: "1.1"
+
+services:
+  node:
+    container_name: reja
+    restart: always
+    image: ronnydev7/reja-image
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+
+    networks:
+      - reja-network
+
+    command: bash -c "npm install && node server.js"
+
+networks:
+  reja-network:
+    driver: bridge
