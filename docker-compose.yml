@@ -6,7 +6,7 @@ services:
     restart: always
     image: ronnydev7/reja-image
     ports:
-      - "3000:3000"
+      - "3003:3000"
     volumes:
       - ./:/usr/src/app
     working_dir: /usr/src/app
